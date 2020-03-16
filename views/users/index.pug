@@ -1,0 +1,13 @@
+extends ../layouts/default
+block content
+  h1 'Users#index'
+  .card.bg-light.mb-3
+    table.table.table-striped.table.bordered.table-hover
+      tr
+        th 名前
+        th ログインID
+      each user in users
+        tr
+          td #{user.name}
+          td #{user.login_id}
+
