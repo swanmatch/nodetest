@@ -1,0 +1,13 @@
+extends ../layouts/default
+block content
+  -
+    let act = "登録"
+    let url = "/users"
+
+  h2 Users#new
+
+  include _form
+
+  .row.justify-content-center
+    div
+      a(href=`/users`).btn.btn-secondary 戻る

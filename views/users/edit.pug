@@ -1,0 +1,14 @@
+extends ../layouts/default
+block content
+  -
+    let act = "更新"
+    let url = `/users/${user.id}`
+
+  h2 Users#edit
+
+  include _form
+
+  .row.justify-content-center
+    div
+      a(href=`/users`).btn.btn-secondary 戻る
+      a(href=`/users/${user.id}/delete` onclick="confirm('Are you sure?');").btn.btn-danger 削除

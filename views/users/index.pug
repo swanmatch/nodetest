@@ -1,6 +1,6 @@
 extends ../layouts/default
 block content
-  h1 'Users#index'
+  h2 Users#index
   .card.bg-light.mb-3
     table.table.table-striped.table.bordered.table-hover
       tr
@@ -8,6 +8,8 @@ block content
         th ログインID
       each user in users
         tr
-          td #{user.name}
+          td
+            a(href=`/users/${user.id}/edit`) #{user.name}
           td #{user.login_id}
-
+  .text-center
+    a(href=`/users/new`).btn.btn-info 新規登録

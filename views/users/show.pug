@@ -1,0 +1,9 @@
+extends ../layouts/default
+block content
+  - var only_show = true;
+  h2 Users#show
+
+  include _form
+
+  .text-center
+    a(href=`/users`).btn.btn-secondary 戻る

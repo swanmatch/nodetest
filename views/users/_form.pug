@@ -1,0 +1,39 @@
+-
+  let disabled = only_show || false;
+  let action = url || '#';
+  let inputs = [
+    [
+      { id: 'name', name: '名前', val: `${user.name}`, type: 'text' },
+      { id: 'login_id', name: 'ログインID', val: `${user.login_id}`, type: 'text' }
+    ],
+    [
+      { id: 'password', name: 'パスワード', type: 'password' },
+      { id: 'password_confirm', name: 'パスワード確認', type: 'password' }
+    ]
+  ];
+
+if errors
+  .card.bg-danger.text-white.mb-3
+    .card-body
+      p エラーが発生しました！
+      ul
+        each error in errors
+          li #{error.param} is #{error.msg}
+
+form(action=`${url}` method="post")
+  .card.bg-light.mb-3
+    .card-body
+      .form-inputs.mb-3
+        each row in inputs
+          .row.mb-2
+            each col in row
+              .col-md
+                .form-label-group
+                  label(for=`${col.id}`).control-label #{col.name}
+                  if disabled
+                    input(type=`${col.type}` name=`${col.id}` value=`${col.val || ''}` disabled).form-control
+                  else
+                    input(type=`${col.type}` name=`${col.id}` value=`${col.val || ''}`).form-control
+      .form-actions.text-center
+        if act
+          input(type="submit" value=`${act}`).btn.btn-primary
